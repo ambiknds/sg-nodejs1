@@ -1,0 +1,19 @@
+const http = require('http');
+const fs = require('fs');
+
+http
+  .createServer((req, res) => {
+    // console.log(req);
+    res.end("First responses");
+
+    if (req.url === '/products' && req.method == "GET") {
+      res.end("Get Product data");
+    }
+    else if (req.url === '/products' && req.method == "POST") {
+      res.end("Created Product data");
+    }
+    else if (req.url === '/users' && req.method == "POST") {
+      res.end("Created Users");
+    }
+  })
+  .listen(8000)
